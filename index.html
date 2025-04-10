@@ -34,11 +34,13 @@
       font-size: 2.8rem;
       color: #00bfff;
       margin-bottom: 10px;
+      text-shadow: 0 0 15px #ff69b4;
     }
 
     h2 {
       color: #ffc0cb;
       margin-top: 40px;
+      text-shadow: 0 0 10px #ff1493;
     }
 
     .urgente {
@@ -53,7 +55,16 @@
       100% { opacity: 1; }
     }
 
-    .btn-valor, button {
+    input, textarea {
+      width: 90%;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 12px;
+      border: none;
+      font-size: 18px;
+    }
+
+    button {
       background: linear-gradient(90deg, #ff69b4, #ff1493);
       color: #fff;
       padding: 18px 30px;
@@ -66,18 +77,9 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .btn-valor:hover, button:hover {
+    button:hover {
       transform: scale(1.08);
       box-shadow: 0 0 20px #ff1493;
-    }
-
-    input, textarea {
-      width: 90%;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 12px;
-      border: none;
-      font-size: 18px;
     }
 
     #statusPagamento {
@@ -137,46 +139,57 @@
       box-shadow: 0 0 12px #ff69b4;
       color: #fff;
     }
+
+    .popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #222;
+      padding: 15px 25px;
+      border-radius: 12px;
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 0 15px #ff69b4;
+      display: none;
+    }
   </style>
 </head>
 <body>
-
 <video class="bg-video" autoplay muted loop playsinline>
   <source src="https://paygrupoviip.vercel.app/video.mp4" type="video/mp4">
 </video>
+<audio id="vozSexy" preload="auto">
+  <source src="https://cdn.pixabay.com/download/audio/2023/03/14/audio_15e57d603f.mp3?filename=sexy-whisper-voice-140774.mp3" type="audio/mp3">
+</audio>
+
+<div class="popup" id="popupSuccess">✅ Tesão liberado com sucesso!</div>
 
 <div class="container">
-  <h1>Telegram Pay 🔥 +🔞</h1>
-  <p class="urgente">⚠️ Tesão máximo ativado! Últimas chances HOJE!</p>
-  <div class="contador" id="timer">Expira em: 04:45</div>
+  <h1>🔥 Telegram Pay +🔞</h1>
+  <p class="urgente">⚠️ Acesso exclusivo... e quase esgotado!</p>
+  <div class="contador" id="timer">Expira em: 04:59</div>
 
-  <h2>Escolha agora e goze com exclusividade 👇</h2>
-  <div>
-    <button class="btn-valor" onclick="setValor(9.99)">💋 R$9,99 - Só 2 restantes!</button>
-    <button class="btn-valor" onclick="setValor(19.99)">🍑 R$19,99 - Libera tudo!</button>
-    <button class="btn-valor" onclick="setValor(45)">💦 R$45,00 - Acesso VIP e proibido</button>
-  </div>
+  <h2>💸 Prove o quanto você quer me ter 😈</h2>
+  <input type="number" id="valor" placeholder="Digite o valor que você acha que me merece 💋">
+  <button onclick="gerarPix()">🚨 Gerar meu PIX</button>
 
-  <input type="number" id="valor" placeholder="Ou digite o valor que quiser ser meu 😈">
-  <button onclick="gerarPix()">🚨 Gerar Acesso Agora</button>
-
-  <h2>Código do Acesso Rápido:</h2>
+  <h2>🔐 Liberação:</h2>
   <textarea id="codigoPix" readonly></textarea>
-  <div><button class="copy-btn" onclick="copiarPix()">📋 Copiar e correr pro tesão</button></div>
+  <div><button class="copy-btn" onclick="copiarPix()">📋 Copiar Código</button></div>
 
-  <div id="statusPagamento">🕐 Pronto! Só pagar e me ter agora 😈</div>
-
-  <button onclick="verificarPagamento()">🔍 Conferir Tesão Liberado</button>
-  <div class="badge-seguro">🔒 Ambiente seguro, sigiloso e validado</div>
+  <div id="statusPagamento">🕐 Aguardando seu toque final...</div>
+  <button onclick="verificarPagamento()">🔍 Verificar Acesso</button>
+  <div class="badge-seguro">🔒 Site Oficial | Segurança Total</div>
 </div>
 
-<div class="notificacao">🚨 Alguém do RJ acabou de liberar tudo com R$45,00!</div>
+<div class="notificacao">📢 Luana de SP acabou de liberar o VIP 🔞</div>
 
 <script>
 let transacaoID = '';
 const token = "23732|c0FIWk5G62or5b9HMKv9pS3gtPF4UMPXGAx9pN7i50199b6a";
 let tempo = 299;
 const timerEl = document.getElementById('timer');
+const audio = document.getElementById('vozSexy');
 
 function setValor(valor) {
   document.getElementById('valor').value = valor;
@@ -185,7 +198,7 @@ function setValor(valor) {
 function gerarPix() {
   const valor = document.getElementById('valor').value;
   const valorCentavos = parseInt(parseFloat(valor) * 100);
-  document.getElementById('statusPagamento').innerText = "⏳ Gerando tesão personalizado...";
+  document.getElementById('statusPagamento').innerText = "⏳ Gerando código..."
 
   fetch("https://api.pushinpay.com.br/api/pix/cashIn", {
     method: "POST",
@@ -202,12 +215,12 @@ function gerarPix() {
     .then(json => {
       transacaoID = json.id;
       document.getElementById('codigoPix').value = json.qr_code || 'Erro';
-      document.getElementById('statusPagamento').innerText = "🕐 Pronto! Só pagar e me ter agora 😈";
+      document.getElementById('statusPagamento').innerText = "🕐 Copie e pague para liberar tudo 💦";
     });
 }
 
 function verificarPagamento() {
-  if (!transacaoID) return alert("Nenhuma transação ativa ainda, gostoso!");
+  if (!transacaoID) return alert("🚫 Nenhuma transação ativa ainda...");
   fetch(`https://api.pushinpay.com.br/api/transactions/${transacaoID}`, {
     method: "GET",
     headers: {
@@ -218,7 +231,11 @@ function verificarPagamento() {
   .then(res => res.json())
   .then(json => {
     if (json.status === "paid") {
-      document.getElementById('statusPagamento').innerText = "✅ Pagamento confirmado! Tudo liberado pra você 😏";
+      document.getElementById('statusPagamento').innerText = "✅ Acesso liberado. Entrando no paraíso...";
+      document.getElementById('popupSuccess').style.display = 'block';
+      setTimeout(() => {
+        window.location.href = "https://t.me/sualinkhot";
+      }, 3000);
     } else {
       document.getElementById('statusPagamento').innerText = `⏳ Status: ${json.status}`;
     }
@@ -229,7 +246,8 @@ function copiarPix() {
   const codigo = document.getElementById('codigoPix');
   codigo.select();
   document.execCommand('copy');
-  alert("Código copiado! Vai, aproveita enquanto ainda tá quente 🔥");
+  alert("📋 Código copiado! Corre que tá acabando!");
+  audio.play();
 }
 
 setInterval(() => {
@@ -243,6 +261,5 @@ setInterval(() => {
   }
 }, 1000);
 </script>
-
 </body>
 </html>
