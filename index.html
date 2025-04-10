@@ -28,6 +28,8 @@
     .container {
       text-align: center;
       padding: 40px 15px;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -152,6 +154,16 @@
       box-shadow: 0 0 18px #ff69b4;
       animation: piscar 1s infinite;
     }
+
+    .imagem-vip {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      margin: 30px auto;
+      display: block;
+      border-radius: 18px;
+      box-shadow: 0 0 20px #ff1493;
+    }
   </style>
 </head>
 <body>
@@ -165,6 +177,9 @@
   <p class="urgente">⚠️ Você foi convidado a algo proibido... poucos conseguem entrar</p>
   <div class="contador" id="timer">Expira em: 04:59</div>
   <div class="live-banner">🎥 LIVE AO VIVO rolando AGORA no grupo VIP! Últimas 2 vagas disponíveis!</div>
+
+  <!-- IMAGEM LOCAL -->
+  <img src="img/vemservip.png" alt="Acesso VIP" class="imagem-vip">
 
   <h2>💸 Digite quanto você quer investir no SEU prazer:</h2>
   <input type="text" id="valor" placeholder="Ex: 9,99 ou 9R$ ou só 9">
@@ -192,7 +207,7 @@ let tempo = 299;
 const timerEl = document.getElementById('timer');
 
 function normalizarValor(valorStr) {
-  valorStr = valorStr.replace(/r\$|reais|real| /gi, '').replace(',', '.');
+  valorStr = valorStr.replace(/r\\$|reais|real| /gi, '').replace(',', '.');
   const numero = parseFloat(valorStr);
   return isNaN(numero) ? null : Math.round(numero * 100);
 }
@@ -200,7 +215,6 @@ function normalizarValor(valorStr) {
 function gerarPix() {
   const valorTexto = document.getElementById('valor').value;
   const valorCentavos = normalizarValor(valorTexto);
-
   if (valorCentavos === null || valorCentavos < 100) {
     alert("⚠️ Digite um valor válido! Mínimo R$1,00");
     return;
@@ -230,7 +244,6 @@ function gerarPix() {
 
 function verificarPagamento() {
   if (!transacaoID) return alert("🚫 Nenhuma transação ativa");
-
   fetch(`https://api.pushinpay.com.br/api/transactions/${transacaoID}`, {
     method: "GET",
     headers: {
