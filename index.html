@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔥 Telegram Pay Oficial 🔒</title>
+  <title>🔥 Telegram Pay Oficial – Acesso VIP 🔒</title>
   <style>
     body {
       margin: 0;
@@ -34,24 +34,25 @@
       font-size: 2.8rem;
       color: #00bfff;
       margin-bottom: 10px;
-      text-shadow: 0 0 15px #ff69b4;
+      text-shadow: 0 0 10px #00bfff;
     }
 
     h2 {
       color: #ffc0cb;
       margin-top: 40px;
-      text-shadow: 0 0 10px #ff1493;
+      text-shadow: 0 0 5px #ff69b4;
     }
 
     .urgente {
-      font-size: 1.3rem;
-      color: red;
+      font-size: 1.4rem;
+      color: #ff0000;
       animation: piscar 0.8s infinite;
+      text-shadow: 0 0 10px #ff0000;
     }
 
     @keyframes piscar {
       0% { opacity: 1; }
-      50% { opacity: 0.2; }
+      50% { opacity: 0.3; }
       100% { opacity: 1; }
     }
 
@@ -101,12 +102,12 @@
     .badge-seguro {
       background-color: #00ffcc;
       color: black;
-      padding: 8px 14px;
-      border-radius: 10px;
+      padding: 10px 18px;
+      border-radius: 12px;
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 30px;
       font-weight: bold;
-      box-shadow: 0 0 10px #00ffcc;
+      box-shadow: 0 0 15px #00ffcc;
     }
 
     .notificacao {
@@ -140,65 +141,72 @@
       color: #fff;
     }
 
-    .popup {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #222;
-      padding: 15px 25px;
-      border-radius: 12px;
-      color: #fff;
+    .live-banner {
+      background: linear-gradient(90deg, #ff1493, #ff69b4);
+      color: black;
+      padding: 16px;
+      font-size: 1.2rem;
       font-weight: bold;
-      box-shadow: 0 0 15px #ff69b4;
-      display: none;
+      border-radius: 14px;
+      margin-top: 25px;
+      box-shadow: 0 0 18px #ff69b4;
+      animation: piscar 1s infinite;
     }
   </style>
 </head>
 <body>
+
 <video class="bg-video" autoplay muted loop playsinline>
   <source src="https://paygrupoviip.vercel.app/video.mp4" type="video/mp4">
 </video>
-<audio id="vozSexy" preload="auto">
-  <source src="https://cdn.pixabay.com/download/audio/2023/03/14/audio_15e57d603f.mp3?filename=sexy-whisper-voice-140774.mp3" type="audio/mp3">
-</audio>
-
-<div class="popup" id="popupSuccess">✅ Tesão liberado com sucesso!</div>
 
 <div class="container">
-  <h1>🔥 Telegram Pay +🔞</h1>
-  <p class="urgente">⚠️ Acesso exclusivo... e quase esgotado!</p>
+  <h1>🔒 Acesso VIP Proibido – Telegram Pay 🔞</h1>
+  <p class="urgente">⚠️ Você foi convidado a algo proibido... poucos conseguem entrar</p>
   <div class="contador" id="timer">Expira em: 04:59</div>
+  <div class="live-banner">🎥 LIVE AO VIVO rolando AGORA no grupo VIP! Últimas 2 vagas disponíveis!</div>
 
-  <h2>💸 Prove o quanto você quer me ter 😈</h2>
-  <input type="number" id="valor" placeholder="Digite o valor que você acha que me merece 💋">
-  <button onclick="gerarPix()">🚨 Gerar meu PIX</button>
+  <h2>💸 Digite quanto você quer investir no SEU prazer:</h2>
+  <input type="text" id="valor" placeholder="Ex: 9,99 ou 9R$ ou só 9">
+  <button onclick="gerarPix()">💥 Liberar Acesso VIP</button>
 
-  <h2>🔐 Liberação:</h2>
+  <h2>📥 Copie o PIX gerado abaixo:</h2>
   <textarea id="codigoPix" readonly></textarea>
   <div><button class="copy-btn" onclick="copiarPix()">📋 Copiar Código</button></div>
 
-  <div id="statusPagamento">🕐 Aguardando seu toque final...</div>
-  <button onclick="verificarPagamento()">🔍 Verificar Acesso</button>
-  <div class="badge-seguro">🔒 Site Oficial | Segurança Total</div>
+  <div id="statusPagamento">⏳ Código gerado... só falta você liberar o proibido</div>
+
+  <button onclick="verificarPagamento()">🔄 Verificar Pagamento</button>
+  <div class="badge-seguro">🔐 Verificado | Seguro | Nenhum dado é armazenado</div>
+
+  <h2 style="color: #ff69b4; margin-top: 40px;">📸 No VIP você encontra:</h2>
+  <p style="font-size: 18px; max-width: 500px; margin: auto;">Mais de <b>849 conteúdos exclusivos</b>, vídeos nunca postados, lives rolando AGORA e surpresas que viciam. Se você entrar agora, ainda dá tempo de me ver ao vivo... Mas só restam <span class="urgente">2 acessos</span> disponíveis. Depois disso, fecha tudo.</p>
 </div>
 
-<div class="notificacao">📢 Luana de SP acabou de liberar o VIP 🔞</div>
+<div class="notificacao" id="notificacao"></div>
 
 <script>
 let transacaoID = '';
 const token = "23732|c0FIWk5G62or5b9HMKv9pS3gtPF4UMPXGAx9pN7i50199b6a";
 let tempo = 299;
 const timerEl = document.getElementById('timer');
-const audio = document.getElementById('vozSexy');
 
-function setValor(valor) {
-  document.getElementById('valor').value = valor;
+function normalizarValor(valorStr) {
+  valorStr = valorStr.replace(/r\$|reais|real| /gi, '').replace(',', '.');
+  const numero = parseFloat(valorStr);
+  return isNaN(numero) ? null : Math.round(numero * 100);
 }
 
 function gerarPix() {
-  const valor = document.getElementById('valor').value;
-  const valorCentavos = parseInt(parseFloat(valor) * 100);
-  document.getElementById('statusPagamento').innerText = "⏳ Gerando código..."
+  const valorTexto = document.getElementById('valor').value;
+  const valorCentavos = normalizarValor(valorTexto);
+
+  if (valorCentavos === null || valorCentavos < 100) {
+    alert("⚠️ Digite um valor válido! Mínimo R$1,00");
+    return;
+  }
+
+  document.getElementById('statusPagamento').innerText = "⏳ Gerando seu código exclusivo...";
 
   fetch("https://api.pushinpay.com.br/api/pix/cashIn", {
     method: "POST",
@@ -211,16 +219,18 @@ function gerarPix() {
       value: valorCentavos,
       webhook_url: ""
     })
-  }).then(res => res.json())
-    .then(json => {
-      transacaoID = json.id;
-      document.getElementById('codigoPix').value = json.qr_code || 'Erro';
-      document.getElementById('statusPagamento').innerText = "🕐 Copie e pague para liberar tudo 💦";
-    });
+  })
+  .then(res => res.json())
+  .then(json => {
+    transacaoID = json.id;
+    document.getElementById('codigoPix').value = json.qr_code || 'Erro';
+    document.getElementById('statusPagamento').innerText = "💸 PIX gerado. Liberte o desejo antes que expire...";
+  });
 }
 
 function verificarPagamento() {
-  if (!transacaoID) return alert("🚫 Nenhuma transação ativa ainda...");
+  if (!transacaoID) return alert("🚫 Nenhuma transação ativa");
+
   fetch(`https://api.pushinpay.com.br/api/transactions/${transacaoID}`, {
     method: "GET",
     headers: {
@@ -231,10 +241,9 @@ function verificarPagamento() {
   .then(res => res.json())
   .then(json => {
     if (json.status === "paid") {
-      document.getElementById('statusPagamento').innerText = "✅ Acesso liberado. Entrando no paraíso...";
-      document.getElementById('popupSuccess').style.display = 'block';
+      document.getElementById('statusPagamento').innerText = "✅ Pagamento confirmado! Bem-vindo ao conteúdo mais quente do Brasil 🔥";
       setTimeout(() => {
-        window.location.href = "https://t.me/sualinkhot";
+        window.location.href = "https://t.me/seu_grupo_hot_aqui";
       }, 3000);
     } else {
       document.getElementById('statusPagamento').innerText = `⏳ Status: ${json.status}`;
@@ -246,9 +255,31 @@ function copiarPix() {
   const codigo = document.getElementById('codigoPix');
   codigo.select();
   document.execCommand('copy');
-  alert("📋 Código copiado! Corre que tá acabando!");
-  audio.play();
+  alert("✅ PIX copiado! Pague agora e caia dentro do proibido 🔞");
 }
+
+const notificacoes = [
+  "Lucas acabou de se tornar VIP e entrou na chamada...",
+  "Bruno liberou o acesso e já está vendo ao vivo!",
+  "Thiago entrou agora no grupo secreto 🔥",
+  "Rafael está aproveitando o conteúdo exclusivo 😏",
+  "Henrique virou VIP e já está online na live!",
+  "Caio ativou o acesso completo – está AO VIVO",
+  "Matheus acabou de entrar na sala privada",
+  "João desbloqueou tudo e já tá lá dentro!",
+  "Felipe fez o PIX e virou VIP em segundos",
+  "André se conectou à transmissão secreta",
+  "Pedro entrou na chamada proibida",
+  "Diego acessou o grupo dos mais safados 😈"
+];
+
+let notiIndex = 0;
+setInterval(() => {
+  const notiDiv = document.getElementById('notificacao');
+  notiDiv.textContent = notificacoes[notiIndex];
+  notiDiv.style.opacity = 1;
+  notiIndex = (notiIndex + 1) % notificacoes.length;
+}, 8000);
 
 setInterval(() => {
   if (tempo > 0) {
@@ -261,5 +292,6 @@ setInterval(() => {
   }
 }, 1000);
 </script>
+
 </body>
 </html>
