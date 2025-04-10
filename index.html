@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Telegram Pay 🔥</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    h1, h2 {
+      color: #00bfff;
+    }
+
+    .btn-valor {
+      background-color: #00bfff;
+      color: #000;
+      border: none;
+      padding: 12px 20px;
+      margin: 5px;
+      font-size: 16px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .btn-valor:hover {
+      background-color: #008ecc;
+    }
+
+    input, textarea {
+      width: 90%;
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    button {
+      background-color: #00bfff;
+      color: black;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #008ecc;
+    }
+
+    #statusPagamento {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .copy-btn {
+      background-color: #444;
+      color: white;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background-color: #666;
+    }
+
+    .telegram-info {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #aaa;
+    }
+
+    .telegram-info span {
+      color: #00bfff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Telegram Pay 🔞</h1>
+  <p>Realize o pagamento via PIX de forma rápida e segura.</p>
+
+  <div>
+    <h2>Escolha um valor rápido</h2>
+    <div>
+      <button class="btn-valor" onclick="setValor(2.5)">R$2,50</button>
+      <button class="btn-valor" onclick="setValor(4.5)">R$4,50</button>
+      <button class="btn-valor" onclick="setValor(9.99)">R$9,99</button>
+      <button class="btn-valor" onclick="setValor(19.99)">R$19,99</button>
+      <button class="btn-valor" onclick="setValor(45)">R$45,00</button>
+    </div>
+    <input type="number" id="valor" placeholder="Ou digite um valor personalizado" />
+    <button onclick="gerarPix()">Gerar PIX</button>
+  </div>
+
+  <h2>Pedido aguardando pagamento...</h2>
+  <div id="statusPagamento">Nenhuma transação ativa</div>
+
+  <h2>Seu Código PIX Copia e Cola:</h2>
+  <textarea id="codigoPix" readonly></textarea>
+  <div><button class="copy-btn" onclick="copiarPix()">📋 Copiar Código PIX</button></div>
+
+  <button onclick="verificarPagamento()">🔄 Verificar Pagamento</button>
+
+  <div class="telegram-info">
+    <p>Este é o sistema oficial de pagamentos do <span>Telegram</span> +🔞</p>
+  </div>
+
+  <script>
+    let transacaoID = '';
+    const token = "23732|c0FIWk5G62or5b9HMKv9pS3gtPF4UMPXGAx9pN7i50199b6a";
+
+    function setValor(valor) {
+      document.getElementById('valor').value = valor;
+    }
+
+    async function gerarPix() {
+      const valor = document.getElementById('valor').value;
+      const valorCentavos = parseInt(parseFloat(valor) * 100);
+      document.getElementById('statusPagamento').innerText = "⏳ Gerando PIX...";
+
+      const resposta = await fetch("https://api.pushinpay.com.br/api/pix/cashIn", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          value: valorCentavos,
+          webhook_url: ""
+        })
+      });
+
+      const json = await resposta.json();
+      transacaoID = json.id;
+      document.getElementById('codigoPix').value = json.qr_code || 'Erro ao gerar QR Code';
+      document.getElementById('statusPagamento').innerText = "🕐 Aguardando pagamento...";
+    }
+
+    async function verificarPagamento() {
+      if (!transacaoID) {
+        alert("Nenhuma transação ativa.");
+        return;
+      }
+
+      const resposta = await fetch(`https://api.pushinpay.com.br/api/transactions/${transacaoID}`, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Accept": "application/json"
+        }
+      });
+
+      const json = await resposta.json();
+      const status = json.status;
+
+      if (status === "paid") {
+        document.getElementById('statusPagamento').innerText = "✅ Pagamento realizado! Obrigado, gostoso 😏";
+      } else {
+        document.getElementById('statusPagamento').innerText = `⏳ Status atual: ${status}`;
+      }
+    }
+
+    function copiarPix() {
+      const codigo = document.getElementById('codigoPix');
+      codigo.select();
+      document.execCommand('copy');
+      alert("Código PIX copiado com sucesso!");
+    }
+  </script>
+
+</body>
+</html>
