@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🔥 Telegram Pay Oficial 🔒</title>
   <style>
     body {
@@ -31,7 +31,7 @@
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: #00bfff;
       margin-bottom: 10px;
     }
@@ -42,40 +42,40 @@
     }
 
     .urgente {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: red;
-      animation: piscar 1s infinite;
+      animation: piscar 0.8s infinite;
     }
 
     @keyframes piscar {
       0% { opacity: 1; }
-      50% { opacity: 0.3; }
+      50% { opacity: 0.2; }
       100% { opacity: 1; }
     }
 
     .btn-valor, button {
-      background: linear-gradient(90deg, #00bfff, #008ecc);
-      color: #000;
-      padding: 15px 25px;
-      margin: 10px;
-      border-radius: 12px;
+      background: linear-gradient(90deg, #ff69b4, #ff1493);
+      color: #fff;
+      padding: 18px 30px;
+      margin: 12px;
+      border-radius: 16px;
       font-weight: bold;
       border: none;
-      font-size: 16px;
+      font-size: 18px;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .btn-valor:hover, button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #00bfff;
+      transform: scale(1.08);
+      box-shadow: 0 0 20px #ff1493;
     }
 
     input, textarea {
       width: 90%;
       padding: 15px;
       margin: 10px 0;
-      border-radius: 10px;
+      border-radius: 12px;
       border: none;
       font-size: 18px;
     }
@@ -83,26 +83,28 @@
     #statusPagamento {
       margin-top: 20px;
       font-weight: bold;
-      color: #ff69b4;
+      color: #00ffcc;
     }
 
     .copy-btn {
-      background-color: #222;
+      background-color: #111;
       color: white;
       margin-top: 10px;
-      padding: 10px 20px;
-      border-radius: 10px;
+      padding: 12px 24px;
+      border-radius: 12px;
       cursor: pointer;
+      border: 2px solid #ff69b4;
     }
 
     .badge-seguro {
-      background-color: #00bfff;
+      background-color: #00ffcc;
       color: black;
-      padding: 6px 12px;
-      border-radius: 8px;
+      padding: 8px 14px;
+      border-radius: 10px;
       display: inline-block;
       margin-top: 20px;
       font-weight: bold;
+      box-shadow: 0 0 10px #00ffcc;
     }
 
     .notificacao {
@@ -127,46 +129,48 @@
 
     .contador {
       margin-top: 15px;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       background: rgba(255, 255, 255, 0.1);
-      padding: 10px;
-      border-radius: 10px;
+      padding: 12px 20px;
+      border-radius: 12px;
       display: inline-block;
+      box-shadow: 0 0 12px #ff69b4;
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
 <video class="bg-video" autoplay muted loop playsinline>
-  <source src="/mnt/data/hhhhhhhhhhhhhhh.mp4" type="video/mp4">
+  <source src="https://paygrupoviip.vercel.app/video.mp4" type="video/mp4">
 </video>
 
 <div class="container">
   <h1>Telegram Pay 🔥 +🔞</h1>
-  <p class="urgente">⚠️ Oferta válida por tempo LIMITADO!</p>
-  <div class="contador" id="timer">Expira em: 04:59</div>
+  <p class="urgente">⚠️ Tesão máximo ativado! Últimas chances HOJE!</p>
+  <div class="contador" id="timer">Expira em: 04:45</div>
 
-  <h2>Escolha um valor abaixo 👇</h2>
+  <h2>Escolha agora e goze com exclusividade 👇</h2>
   <div>
-    <button class="btn-valor" onclick="setValor(9.99)">🔥 R$9,99 - Últimas unidades</button>
-    <button class="btn-valor" onclick="setValor(19.99)">🔞 R$19,99 - Mais pedido</button>
-    <button class="btn-valor" onclick="setValor(45)">💎 R$45,00 - Acesso VIP</button>
+    <button class="btn-valor" onclick="setValor(9.99)">💋 R$9,99 - Só 2 restantes!</button>
+    <button class="btn-valor" onclick="setValor(19.99)">🍑 R$19,99 - Libera tudo!</button>
+    <button class="btn-valor" onclick="setValor(45)">💦 R$45,00 - Acesso VIP e proibido</button>
   </div>
 
-  <input type="number" id="valor" placeholder="Ou digite seu valor"/>
-  <button onclick="gerarPix()">💥 Gerar PIX</button>
+  <input type="number" id="valor" placeholder="Ou digite o valor que quiser ser meu 😈">
+  <button onclick="gerarPix()">🚨 Gerar Acesso Agora</button>
 
-  <h2>Código PIX:</h2>
+  <h2>Código do Acesso Rápido:</h2>
   <textarea id="codigoPix" readonly></textarea>
-  <div><button class="copy-btn" onclick="copiarPix()">📋 Copiar Código</button></div>
+  <div><button class="copy-btn" onclick="copiarPix()">📋 Copiar e correr pro tesão</button></div>
 
-  <div id="statusPagamento">Aguardando ação...</div>
+  <div id="statusPagamento">🕐 Pronto! Só pagar e me ter agora 😈</div>
 
-  <button onclick="verificarPagamento()">🔄 Verificar Pagamento</button>
-  <div class="badge-seguro">🔒 Pagamento 100% Seguro e Verificado</div>
+  <button onclick="verificarPagamento()">🔍 Conferir Tesão Liberado</button>
+  <div class="badge-seguro">🔒 Ambiente seguro, sigiloso e validado</div>
 </div>
 
-<div class="notificacao">📢 João de SP acabou de pagar R$19,99!</div>
+<div class="notificacao">🚨 Alguém do RJ acabou de liberar tudo com R$45,00!</div>
 
 <script>
 let transacaoID = '';
@@ -181,7 +185,7 @@ function setValor(valor) {
 function gerarPix() {
   const valor = document.getElementById('valor').value;
   const valorCentavos = parseInt(parseFloat(valor) * 100);
-  document.getElementById('statusPagamento').innerText = "⏳ Gerando PIX...";
+  document.getElementById('statusPagamento').innerText = "⏳ Gerando tesão personalizado...";
 
   fetch("https://api.pushinpay.com.br/api/pix/cashIn", {
     method: "POST",
@@ -198,12 +202,12 @@ function gerarPix() {
     .then(json => {
       transacaoID = json.id;
       document.getElementById('codigoPix').value = json.qr_code || 'Erro';
-      document.getElementById('statusPagamento').innerText = "🕐 Aguardando pagamento...";
+      document.getElementById('statusPagamento').innerText = "🕐 Pronto! Só pagar e me ter agora 😈";
     });
 }
 
 function verificarPagamento() {
-  if (!transacaoID) return alert("Nenhuma transação ativa.");
+  if (!transacaoID) return alert("Nenhuma transação ativa ainda, gostoso!");
   fetch(`https://api.pushinpay.com.br/api/transactions/${transacaoID}`, {
     method: "GET",
     headers: {
@@ -214,7 +218,7 @@ function verificarPagamento() {
   .then(res => res.json())
   .then(json => {
     if (json.status === "paid") {
-      document.getElementById('statusPagamento').innerText = "✅ Pagamento realizado! Tesudo 😏";
+      document.getElementById('statusPagamento').innerText = "✅ Pagamento confirmado! Tudo liberado pra você 😏";
     } else {
       document.getElementById('statusPagamento').innerText = `⏳ Status: ${json.status}`;
     }
@@ -225,7 +229,7 @@ function copiarPix() {
   const codigo = document.getElementById('codigoPix');
   codigo.select();
   document.execCommand('copy');
-  alert("PIX copiado! Corre que é por tempo limitado!");
+  alert("Código copiado! Vai, aproveita enquanto ainda tá quente 🔥");
 }
 
 setInterval(() => {
@@ -239,5 +243,6 @@ setInterval(() => {
   }
 }, 1000);
 </script>
+
 </body>
 </html>
