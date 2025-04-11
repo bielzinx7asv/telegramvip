@@ -180,9 +180,6 @@
 
   <button onclick="verificarPagamento()">🔄 Verificar Pagamento</button>
   <div class="badge-seguro">🔐 Verificado | Seguro | Nenhum dado é armazenado</div>
-
-  <h2 style="color: #ff69b4; margin-top: 40px;">📸 No VIP você encontra:</h2>
-  <p style="font-size: 18px; max-width: 500px; margin: auto;">Mais de <b>849 conteúdos exclusivos</b>, vídeos nunca postados, lives rolando AGORA e surpresas que viciam. Se você entrar agora, ainda dá tempo de me ver ao vivo... Mas só restam <span class="urgente">2 acessos</span> disponíveis. Depois disso, fecha tudo.</p>
 </div>
 
 <div class="notificacao" id="notificacao"></div>
@@ -194,7 +191,7 @@ let tempo = 299;
 const timerEl = document.getElementById('timer');
 
 function normalizarValor(valorStr) {
-  valorStr = valorStr.replace(/r\\$|reais|real| /gi, '').replace(',', '.');
+  valorStr = valorStr.replace(/r\$|reais|real| /gi, '').replace(',', '.');
   const numero = parseFloat(valorStr);
   return isNaN(numero) ? null : Math.round(numero * 100);
 }
@@ -231,6 +228,7 @@ function gerarPix() {
 
 function verificarPagamento() {
   if (!transacaoID) return alert("🚫 Nenhuma transação ativa");
+
   fetch(`https://api.pushinpay.com.br/api/transactions/${transacaoID}`, {
     method: "GET",
     headers: {
@@ -241,9 +239,9 @@ function verificarPagamento() {
   .then(res => res.json())
   .then(json => {
     if (json.status === "paid") {
-      document.getElementById('statusPagamento').innerText = "✅ Pagamento confirmado! Bem-vindo ao conteúdo mais quente do Brasil 🔥";
+      document.getElementById('statusPagamento').innerText = "✅ Pagamento confirmado! Liberando seu acesso VIP...";
       setTimeout(() => {
-        window.location.href = "https://t.me/seu_grupo_hot_aqui";
+        window.location.href = "entrega.html";
       }, 3000);
     } else {
       document.getElementById('statusPagamento').innerText = `⏳ Status: ${json.status}`;
