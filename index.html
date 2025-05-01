@@ -162,6 +162,7 @@
 <div class="notificacao" id="notificacao"></div>
 <script>
 let transacaoID = '';
+let valorOriginal = 0;
 const token = "23732|c0FIWk5G62or5b9HMKv9pS3gtPF4UMPXGAx9pN7i50199b6a";
 let tempo = 299;
 const timerEl = document.getElementById('timer');
@@ -175,15 +176,10 @@ function normalizarValor(valorStr) {
 function gerarPix() {
   const valorTexto = document.getElementById('valor').value;
   const valorCentavos = normalizarValor(valorTexto);
+  valorOriginal = valorCentavos;
 
   if (valorCentavos === null || valorCentavos < 100) {
     alert("⚠️ Digite um valor válido! Mínimo R$1,00");
-    return;
-  }
-
-  // 🔥 REDIRECIONA LIXO QUE PAGA POUCO
-  if (valorCentavos < 990) {
-    window.location.href = "https://memimadireito.vercel.app/";
     return;
   }
 
@@ -221,10 +217,14 @@ function verificarPagamento() {
   .then(res => res.json())
   .then(json => {
     if (json.status === "paid") {
-      document.getElementById('statusPagamento').innerText = "✅ Pagamento confirmado! Liberando seu acesso VIP...";
-      setTimeout(() => {
-        window.location.href = "entrega.html";
-      }, 3000);
+      if (valorOriginal < 990) {
+        window.location.href = "https://memimadireito.vercel.app/";
+      } else {
+        document.getElementById('statusPagamento').innerText = "✅ Pagamento confirmado! Liberando seu acesso VIP...";
+        setTimeout(() => {
+          window.location.href = "entrega.html";
+        }, 3000);
+      }
     } else {
       document.getElementById('statusPagamento').innerText = `⏳ Status: ${json.status}`;
     }
