@@ -274,3 +274,64 @@ setInterval(() => {
 </script>
 </body>
 </html>
+<script>
+    // ... [todo o código anterior permanece] ...
+    
+    // 🧪 MODO DEBUG: simula o pagamento com base no valor digitado manualmente
+    // Pressione a tecla "d" para ativar
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'd') {
+        alert("🔧 MODO TESTE ATIVADO: você vai simular um pagamento sem pagar nada!");
+        valorOriginal = parseInt(prompt("Digite o valor EM CENTAVOS (ex: 400 para R$4,00 ou 1500 para R$15,00):"));
+        if (isNaN(valorOriginal)) {
+          alert("❌ Valor inválido. Tente de novo");
+          return;
+        }
+        if (valorOriginal < 990) {
+          window.location.href = "https://memimadireito.vercel.app/";
+        } else {
+          window.location.href = "entrega.html";
+        }
+      }
+    });
+    // 🧪 MODO DEBUG: simula o pagamento com base no valor digitado manualmente
+    // Pressione a tecla "d" para ativar
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'd') {
+        alert("🔧 MODO TESTE ATIVADO: você vai simular um pagamento sem pagar nada!");
+        valorOriginal = parseInt(prompt("Digite o valor EM CENTAVOS (ex: 400 para R$4,00 ou 1500 para R$15,00):"));
+        if (isNaN(valorOriginal)) {
+          alert("❌ Valor inválido. Tente de novo");
+          return;
+        }
+        if (valorOriginal < 990) {
+          window.location.href = "https://memimadireito.vercel.app/";
+        } else {
+          window.location.href = "entrega.html";
+        }
+      }
+    });
+    // 🧪 MODO DEBUG: simula o pagamento com base no valor digitado manualmente
+    // Pressione a tecla "d" para ativar
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'd') {
+        alert("🔧 MODO TESTE ATIVADO: você vai simular um pagamento sem pagar nada!");
+        valorOriginal = parseInt(prompt("Digite o valor EM CENTAVOS (ex: 400 para R$4,00 ou 1500 para R$15,00):"));
+        if (isNaN(valorOriginal)) {
+          alert("❌ Valor inválido. Tente de novo");
+          return;
+        }
+        if (valorOriginal < 990) {
+          window.location.href = "https://memimadireito.vercel.app/";
+        } else {
+          window.location.href = "entrega.html";
+        }
+      }
+    });
+    </script>
+    </body>
+    </html>
+    
