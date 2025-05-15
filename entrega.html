@@ -1,72 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>✅ Conteúdo Liberado</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>✅ Acesso VIP Liberado - Pixel Turbo</title>
 
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code SUPER TURBINADO -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1224942452668173');
+    !(function(f,b,e,v,n,t,s){
+      if(f.fbq) return; n=f.fbq=function(){
+        n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+      };
+      if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+      n.queue=[]; t=b.createElement(e); t.async=!0;
+      t.src=v; s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s);
+    })(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    // Inicie o pixel com seu ID real aqui
+    fbq('init', '1224942452668173', {}, {
+      // Advanced matching (mesmo sem dados pessoais)
+      external_id: null,
+      // Se quiser adicionar user_agent e outras infos para ajudar o pixel
+      agent: navigator.userAgent,
+      // Você pode personalizar mais depois se quiser
+    });
+
+    // Eventos padrão que fortalecem pixel
     fbq('track', 'PageView');
-    fbq('track', 'Purchase', {
+
+    // Eventos extras opcionais para escalar aprendizado do pixel (não muito agressivo)
+    fbq('track', 'ViewContent', {
+      content_name: 'Página de Conteúdo VIP',
+      content_category: 'Conteúdo Digital',
+      content_ids: ['vip_page_01'],
+      content_type: 'product_group',
+    });
+
+    fbq('track', 'AddToCart', {
+      content_ids: ['vip_conteudo_01'],
+      content_type: 'product',
       value: 47.00,
       currency: 'BRL'
     });
+
+    fbq('track', 'InitiateCheckout', {
+      value: 47.00,
+      currency: 'BRL',
+      contents: [{id: 'vip_conteudo_01', quantity: 1}],
+      num_items: 1,
+    });
+
+    // Evento PURCHASE - o mais importante, direto na entrega confirmada
+    fbq('track', 'Purchase', {
+      value: 47.00,             // valor exato da compra
+      currency: 'BRL',
+      content_ids: ['vip_conteudo_01'],
+      content_type: 'product',
+      contents: [{id: 'vip_conteudo_01', quantity: 1}],
+      num_items: 1,
+      event_source_url: window.location.href,
+      // Parâmetro customizado turbo
+      custom_data: {
+        order_id: 'PIX_' + Date.now(), // ID único para cada compra (ajuda evitar duplicidade)
+        payment_method: 'PIX',
+        funnel_stage: 'final',
+        priority: 'max',               // tag turbo pra ajudar aprendizado
+        user_agent: navigator.userAgent // info extra para pixel ajudar
+      }
+    });
   </script>
+
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1224942452668173&ev=PageView&noscript=1"/>
+      src="https://www.facebook.com/tr?id=1224942452668173&ev=PageView&noscript=1" />
   </noscript>
-  <!-- End Meta Pixel Code -->
 
   <style>
     body {
-      background-color: #000;
-      color: #fff;
+      background: #000;
+      color: #0ff;
       font-family: 'Segoe UI', sans-serif;
       text-align: center;
       padding: 40px 20px;
     }
     h1 {
-      font-size: 2.5rem;
-      color: #00ffcc;
+      font-size: 3rem;
       margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ffff;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #33ffff;
     }
     a {
-      display: block;
-      background-color: #00bfff;
-      color: black;
+      display: inline-block;
+      margin: 10px 0;
+      padding: 15px 30px;
+      font-size: 1.3rem;
+      background: #00bfff;
+      color: #000;
+      border-radius: 15px;
+      font-weight: 700;
       text-decoration: none;
-      font-size: 20px;
-      font-weight: bold;
-      padding: 15px 20px;
-      margin: 15px auto;
-      border-radius: 12px;
-      max-width: 400px;
-      box-shadow: 0 0 12px #00ffcc;
-      transition: transform 0.2s;
+      box-shadow: 0 0 15px #0ff;
+      transition: all 0.3s ease;
     }
     a:hover {
-      transform: scale(1.05);
-      background-color: #00aacc;
+      background: #0099cc;
+      transform: scale(1.07);
     }
   </style>
 </head>
 <body>
-  <h1>✅ Parabéns! Acesso VIP Liberado</h1>
-  <p>Escolha onde quer me ver agora 😈👇</p>
-
-  <a href="https://wa.link/3kwkmv" target="_blank">📲 Ir para o WhatsApp VIP</a>
-  <a href="https://t.me/+gfaLikqXAQAwMmMx" target="_blank">📸 Entrar no Grupo do Telegram #1</a>
-  <a href="https://t.me/+Tw6xKhkJYeg4NGE0" target="_blank">🔥 Grupo Telegram #2 (conteúdo secreto)</a>
+  <h1>✅ Conteúdo VIP Liberado - Pixel TURBO!</h1>
+  <p>Compra confirmada via PIX. Bora aproveitar, VIP! 😈👇</p>
+  <a href="https://wa.link/3kwkmv" target="_blank" rel="noopener noreferrer">📲 WhatsApp VIP</a><br/>
+  <a href="https://t.me/+gfaLikqXAQAwMmMx" target="_blank" rel="noopener noreferrer">📸 Grupo Telegram #1</a><br/>
+  <a href="https://t.me/+Tw6xKhkJYeg4NGE0" target="_blank" rel="noopener noreferrer">🔥 Grupo Telegram #2 (secreto)</a>
 </body>
 </html>
