@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>✅ Acesso VIP Liberado - Pixel Turbo</title>
+  <title>✅ Acesso VIP Liberado</title>
 
   <!-- Meta Pixel Code SUPER TURBINADO -->
   <script>
@@ -40,12 +40,12 @@
     fbq('track', 'AddToCart', {
       content_ids: ['vip_conteudo_01'],
       content_type: 'product',
-      value: 47.00,
+      value: 13.00,
       currency: 'BRL'
     });
 
     fbq('track', 'InitiateCheckout', {
-      value: 47.00,
+      value: 13.00,
       currency: 'BRL',
       contents: [{id: 'vip_conteudo_01', quantity: 1}],
       num_items: 1,
@@ -53,7 +53,7 @@
 
     // Evento PURCHASE - o mais importante, direto na entrega confirmada
     fbq('track', 'Purchase', {
-      value: 47.00,             // valor exato da compra
+      value: 13.00,
       currency: 'BRL',
       content_ids: ['vip_conteudo_01'],
       content_type: 'product',
@@ -62,11 +62,11 @@
       event_source_url: window.location.href,
       // Parâmetro customizado turbo
       custom_data: {
-        order_id: 'PIX_' + Date.now(), // ID único para cada compra (ajuda evitar duplicidade)
+        order_id: 'PIX_' + Date.now(),
         payment_method: 'PIX',
         funnel_stage: 'final',
-        priority: 'max',               // tag turbo pra ajudar aprendizado
-        user_agent: navigator.userAgent // info extra para pixel ajudar
+        priority: 'max',
+        user_agent: navigator.userAgent
       }
     });
   </script>
