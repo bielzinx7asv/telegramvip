@@ -3,335 +3,260 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔥 Telegram Pay Oficial – Acesso VIP 🔒</title>
+  <title>💗 Acesso VIP – Amor, só falta você… 💦</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-      background: #000;
-      overflow-x: hidden;
+    :root{
+      --rosa:#ff69b4; --rosa2:#ff1493; --ciano:#00ffcc; --azul:#00bfff; --bg:#000; --texto:#fff;
     }
-    video.bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(0.2);
+    *{box-sizing:border-box}
+    body{
+      margin:0; padding:0; font-family:'Segoe UI',system-ui,Roboto,Arial,sans-serif;
+      color:var(--texto); background:var(--bg); overflow-x:hidden;
     }
-    .container {
-      text-align: center;
-      padding: 40px 15px;
-      position: relative;
-      z-index: 1;
+    video.bg-video{
+      position:fixed; inset:0; width:100vw; height:100vh; object-fit:cover; z-index:-1; filter:brightness(.2);
     }
-    h1 {
-      font-size: 2.8rem;
-      color: #00bfff;
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px #00bfff;
+    .container{max-width:960px; margin:0 auto; text-align:center; padding:40px 16px; position:relative; z-index:1}
+    h1{
+      font-size:2.4rem; line-height:1.2; margin:0 0 10px;
+      color:var(--azul); text-shadow:0 0 10px var(--azul);
     }
-    h2 {
-      color: #ffc0cb;
-      margin-top: 40px;
-      text-shadow: 0 0 5px #ff69b4;
+    .sub{
+      font-size:1.1rem; color:#ffc0cb; text-shadow:0 0 6px var(--rosa);
+      margin-bottom:18px;
     }
-    .urgente {
-      font-size: 1.4rem;
-      color: #ff0000;
-      animation: piscar 0.8s infinite;
-      text-shadow: 0 0 10px #ff0000;
+    .urgente{
+      display:inline-block; margin-top:6px; font-size:1.15rem; color:#ff3b3b;
+      text-shadow:0 0 12px #ff0000; animation:piscar .85s infinite;
     }
-    @keyframes piscar {
-      0% { opacity: 1; }
-      50% { opacity: 0.3; }
-      100% { opacity: 1; }
+    @keyframes piscar{0%{opacity:1}50%{opacity:.28}100%{opacity:1}}
+    .card{
+      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(6px);
+      padding:22px; border-radius:18px; margin:20px auto; max-width:780px; text-align:left;
+      box-shadow:0 0 24px rgba(255, 20, 147,.15);
     }
-    input, textarea {
-      width: 90%;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 12px;
-      border: none;
-      font-size: 18px;
+    .tag{
+      display:inline-block; font-size:.9rem; font-weight:700; padding:8px 12px; border-radius:999px;
+      background:linear-gradient(90deg, var(--rosa2), var(--rosa)); color:#000; margin:0 6px 8px 0;
+      box-shadow:0 0 14px var(--rosa2);
     }
-    button {
-      background: linear-gradient(90deg, #ff69b4, #ff1493);
-      color: #fff;
-      padding: 18px 30px;
-      margin: 12px;
-      border-radius: 16px;
-      font-weight: bold;
-      border: none;
-      font-size: 18px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+    .live-banner{
+      background:linear-gradient(90deg, var(--rosa2), var(--rosa));
+      color:#000; padding:14px 16px; font-size:1.05rem; font-weight:800; border-radius:14px; margin-top:14px;
+      box-shadow:0 0 18px var(--rosa2); animation:piscar 1s infinite;
     }
-    button:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 20px #ff1493;
+    .contador{
+      margin:14px 0 0; font-size:1.2rem; background:rgba(255,255,255,.08);
+      padding:10px 14px; border-radius:12px; display:inline-block; box-shadow:0 0 12px var(--rosa2);
     }
-    #statusPagamento {
-      margin-top: 20px;
-      font-weight: bold;
-      color: #00ffcc;
+    label{display:block; margin:18px 0 8px; font-weight:700}
+    input, textarea{
+      width:100%; padding:14px 14px; margin:0 0 10px; border-radius:12px; border:1px solid rgba(255,255,255,.15);
+      font-size:16px; color:#fff; background:rgba(255,255,255,.08); outline:none;
     }
-    .copy-btn {
-      background-color: #111;
-      color: white;
-      margin-top: 10px;
-      padding: 12px 24px;
-      border-radius: 12px;
-      cursor: pointer;
-      border: 2px solid #ff69b4;
+    textarea{min-height:120px; resize:vertical}
+    .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    button{
+      background:linear-gradient(90deg, var(--rosa), var(--rosa2)); color:#fff; padding:16px 22px; margin:10px 0;
+      border-radius:14px; font-weight:900; border:none; font-size:16px; cursor:pointer;
+      transition:transform .18s, box-shadow .18s;
     }
-    .badge-seguro {
-      background-color: #00ffcc;
-      color: black;
-      padding: 10px 18px;
-      border-radius: 12px;
-      display: inline-block;
-      margin-top: 30px;
-      font-weight: bold;
-      box-shadow: 0 0 15px #00ffcc;
+    button:hover{transform:scale(1.06); box-shadow:0 0 20px var(--rosa2)}
+    .btn-sec{background:#111; border:2px solid var(--rosa); font-weight:700}
+    #statusPagamento{margin-top:10px; font-weight:800; color:var(--ciano)}
+    .badge-seguro{
+      background-color:var(--ciano); color:#000; padding:10px 18px; border-radius:12px; display:inline-block;
+      margin-top:16px; font-weight:900; box-shadow:0 0 15px var(--ciano);
     }
-    .notificacao {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      background: #111;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-size: 14px;
-      opacity: 0;
-      animation: aparecer 8s infinite;
+    .notificacao{
+      position:fixed; bottom:10px; left:10px; background:#111; color:#fff; padding:12px 20px; border-radius:10px; font-size:14px; opacity:0; animation:aparecer 8s infinite;
     }
-    @keyframes aparecer {
-      0% { opacity: 0; }
-      5% { opacity: 1; }
-      95% { opacity: 1; }
-      100% { opacity: 0; }
-    }
-    .contador {
-      margin-top: 15px;
-      font-size: 1.5rem;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 12px 20px;
-      border-radius: 12px;
-      display: inline-block;
-      box-shadow: 0 0 12px #ff69b4;
-      color: #fff;
-    }
-    .live-banner {
-      background: linear-gradient(90deg, #ff1493, #ff69b4);
-      color: black;
-      padding: 16px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      border-radius: 14px;
-      margin-top: 25px;
-      box-shadow: 0 0 18px #ff69b4;
-      animation: piscar 1s infinite;
+    @keyframes aparecer{0%{opacity:0}5%{opacity:1}95%{opacity:1}100%{opacity:0}}
+    .rodape{
+      margin:26px 0 6px; opacity:.9; font-size:.95rem; text-align:center;
     }
   </style>
 </head>
 <body>
-<video class="bg-video" autoplay muted loop playsinline>
-  <source src="https://paygrupoviip.vercel.app/video.mp4" type="video/mp4">
-</video>
-<div class="container">
-  <h1>🔒 Acesso VIP Proibido – Telegram Pay 🔞</h1>
-  <p class="urgente">⚠️ Você foi convidado a algo proibido... poucos conseguem entrar</p>
-  <div class="contador" id="timer">Expira em: 04:59</div>
-  <div class="live-banner">🎥 LIVE AO VIVO rolando AGORA no grupo VIP! Últimas 2 vagas disponíveis!</div>
-  <h2>💸 Digite quanto você quer investir no SEU prazer:</h2>
-  <input type="text" id="valor" placeholder="Ex: 9,99 ou 9R$ ou só 9">
-  <button onclick="gerarPix()">💥 Liberar Acesso VIP</button>
-  <h2>📅 Copie o PIX gerado abaixo:</h2>
-  <textarea id="codigoPix" readonly></textarea>
-  <div><button class="copy-btn" onclick="copiarPix()">📋 Copiar Código</button></div>
-  <div id="statusPagamento">⏳ Código gerado... só falta você liberar o proibido</div>
-  <button onclick="verificarPagamento()">🔄 Verificar Pagamento</button>
-  <div class="badge-seguro">🔐 Verificado | Seguro | Nenhum dado é armazenado</div>
-</div>
-<div class="notificacao" id="notificacao"></div>
-<script>
-let transacaoID = '';
-let valorOriginal = 0;
-const token = "23732|c0FIWk5G62or5b9HMKv9pS3gtPF4UMPXGAx9pN7i50199b6a";
-let tempo = 299;
-const timerEl = document.getElementById('timer');
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="https://paygrupoviip.vercel.app/video.mp4" type="video/mp4">
+  </video>
 
-function normalizarValor(valorStr) {
-  valorStr = valorStr.replace(/r\$|reais|real| /gi, '').replace(',', '.');
-  const numero = parseFloat(valorStr);
-  return isNaN(numero) ? null : Math.round(numero * 100);
-}
+  <div class="container">
+    <h1>Amor, só falta essa parte aqui pra ti…</h1>
+    <p class="sub">tô te esperando aqui <strong>molhadinha</strong>, do jeitinho que você gosta 💋</p>
+    <span class="urgente">⚠️ Últimas vagas ao vivo — entra agora</span>
 
-function gerarPix() {
-  const valorTexto = document.getElementById('valor').value;
-  const valorCentavos = normalizarValor(valorTexto);
-  valorOriginal = valorCentavos;
+    <div class="live-banner">🎥 LIVE rolando AGORA no VIP: sem censura, joguinhos, sussurros no teu ouvido, POV e surpresa pra quem entrar primeiro</div>
+    <div class="contador" id="timer">Expira em: 04:59</div>
 
-  if (valorCentavos === null || valorCentavos < 100) {
-    alert("⚠️ Digite um valor válido! Mínimo R$1,00");
-    return;
-  }
+    <div class="card">
+      <div style="margin-bottom:8px">
+        <span class="tag">🔥 Sem censura</span>
+        <span class="tag">🎧 Áudio no teu nome</span>
+        <span class="tag">💌 Pack exclusivo</span>
+        <span class="tag">🕒 Privadinho comigo</span>
+      </div>
 
-  document.getElementById('statusPagamento').innerText = "⏳ Gerando seu código exclusivo...";
+      <label for="valor">💸 Quanto você quer investir no SEU prazer?</label>
+      <input type="text" id="valor" placeholder="Ex: 9,99 ou 9R$ ou só 9">
 
-  fetch("https://api.pushinpay.com.br/api/pix/cashIn", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${token}`,
-      "Accept": "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      value: valorCentavos,
-      webhook_url: ""
-    })
-  })
-  .then(res => res.json())
-  .then(json => {
-    transacaoID = json.id;
-    document.getElementById('codigoPix').value = json.qr_code || 'Erro';
-    document.getElementById('statusPagamento').innerText = "💸 PIX gerado. Liberte o desejo antes que expire...";
-  });
-}
+      <div class="row">
+        <button id="btnGerar" onclick="gerarPix()">💥 Liberar Acesso VIP</button>
+        <button class="btn-sec" onclick="verificarPagamento()">🔄 Verificar Pagamento</button>
+      </div>
 
-function verificarPagamento() {
-  if (!transacaoID) return alert("🚫 Nenhuma transação ativa");
-  fetch(`https://api.pushinpay.com.br/api/transactions/${transacaoID}`, {
-    method: "GET",
-    headers: {
-      "Authorization": `Bearer ${token}`,
-      "Accept": "application/json"
+      <label for="codigoPix">📋 Copie o PIX gerado abaixo:</label>
+      <textarea id="codigoPix" readonly></textarea>
+      <div class="row">
+        <button class="btn-sec" onclick="copiarPix()">📎 Copiar Código</button>
+      </div>
+
+      <div id="statusPagamento">⏳ Código gerado… só falta você liberar o proibido</div>
+      <div class="badge-seguro">🔐 Verificado | Seguro | Nenhum dado é armazenado</div>
+    </div>
+
+    <p class="rodape"><em>Não me decepcione… vamos gozar juntos.</em> 💞</p>
+  </div>
+
+  <div class="notificacao" id="notificacao"></div>
+
+  <script>
+    // ================== CONFIG ==================
+    // Substitua pelo seu token real com segurança (NÃO exponha em produção)
+    const token = "23732|c0FIWk5G62or5b9HMKv9pS3gtPF4UMPXGAx9pN7i50199b6a";
+    // ============================================
+
+    let transacaoID = "";
+    let valorOriginal = 0;
+    let tempo = 299;
+    const timerEl = document.getElementById("timer");
+
+    function normalizarValor(valorStr) {
+      if (!valorStr) return null;
+      valorStr = valorStr.replace(/r\$|reais|real| /gi, "").replace(",", ".");
+      const numero = parseFloat(valorStr);
+      return isNaN(numero) ? null : Math.round(numero * 100);
     }
-  })
-  .then(res => res.json())
-  .then(json => {
-    if (json.status === "paid") {
-      if (valorOriginal < 990) {
-        window.location.href = "https://memimadireito.vercel.app/";
-      } else {
-        document.getElementById('statusPagamento').innerText = "✅ Pagamento confirmado! Liberando seu acesso VIP...";
-        setTimeout(() => {
-          window.location.href = "entrega.html";
-        }, 3000);
+
+    function gerarPix() {
+      const valorTexto = document.getElementById("valor").value;
+      const valorCentavos = normalizarValor(valorTexto);
+      valorOriginal = valorCentavos;
+
+      if (valorCentavos === null || valorCentavos < 100) {
+        alert("⚠️ Digite um valor válido! Mínimo R$1,00");
+        return;
       }
-    } else {
-      document.getElementById('statusPagamento').innerText = `⏳ Status: ${json.status}`;
+
+      document.getElementById("statusPagamento").innerText = "⏳ Gerando seu código exclusivo...";
+
+      fetch("https://api.pushinpay.com.br/api/pix/cashIn", {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer " + token,
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          value: valorCentavos,
+          webhook_url: ""
+        })
+      })
+      .then(res => res.json())
+      .then(json => {
+        if (!json || json.error) {
+          document.getElementById("codigoPix").value = "Erro ao gerar PIX.";
+          document.getElementById("statusPagamento").innerText = "❌ Tenta novamente.";
+          return;
+        }
+        transacaoID = json.id;
+        document.getElementById("codigoPix").value = json.qr_code || "Erro: QR não recebido.";
+        document.getElementById("statusPagamento").innerText = "💸 PIX gerado. Libera antes que expire…";
+      })
+      .catch(() => {
+        document.getElementById("statusPagamento").innerText = "❌ Erro de conexão. Tenta de novo.";
+      });
     }
-  });
-}
 
-function copiarPix() {
-  const codigo = document.getElementById('codigoPix');
-  codigo.select();
-  document.execCommand('copy');
-  alert("✅ PIX copiado! Pague agora e caia dentro do proibido 🔞");
-}
+    function verificarPagamento() {
+      if (!transacaoID) { alert("🚫 Nenhuma transação ativa"); return; }
 
-const notificacoes = [
-  "Lucas acabou de se tornar VIP e entrou na chamada...",
-  "Bruno liberou o acesso e já está vendo ao vivo!",
-  "Thiago entrou agora no grupo secreto 🔥",
-  "Rafael está aproveitando o conteúdo exclusivo 😏",
-  "Henrique virou VIP e já está online na live!",
-  "Caio ativou o acesso completo – está AO VIVO",
-  "Matheus acabou de entrar na sala privada",
-  "João desbloqueou tudo e já tá lá dentro!",
-  "Felipe fez o PIX e virou VIP em segundos",
-  "André se conectou à transmissão secreta",
-  "Pedro entrou na chamada proibida",
-  "Diego acessou o grupo dos mais safados 😈"
-];
+      fetch(`https://api.pushinpay.com.br/api/transactions/${transacaoID}`, {
+        method: "GET",
+        headers: {
+          "Authorization": "Bearer " + token,
+          "Accept": "application/json"
+        }
+      })
+      .then(res => res.json())
+      .then(json => {
+        if (!json) return;
+        if (json.status === "paid") {
+          if (valorOriginal < 990) {
+            window.location.href = "https://memimadireito.vercel.app/";
+          } else {
+            document.getElementById("statusPagamento").innerText = "✅ Pagamento confirmado! Liberando seu acesso VIP…";
+            setTimeout(() => { window.location.href = "entrega.html"; }, 1800);
+          }
+        } else {
+          document.getElementById("statusPagamento").innerText = `⏳ Status: ${json.status}`;
+        }
+      })
+      .catch(() => {
+        document.getElementById("statusPagamento").innerText = "❌ Não consegui confirmar. Tenta de novo.";
+      });
+    }
 
-let notiIndex = 0;
-setInterval(() => {
-  const notiDiv = document.getElementById('notificacao');
-  notiDiv.textContent = notificacoes[notiIndex];
-  notiDiv.style.opacity = 1;
-  notiIndex = (notiIndex + 1) % notificacoes.length;
-}, 8000);
+    async function copiarPix() {
+      const codigo = document.getElementById("codigoPix").value;
+      if (!codigo) { alert("Nada para copiar ainda."); return; }
+      try {
+        await navigator.clipboard.writeText(codigo);
+        alert("✅ PIX copiado! Paga agora e vem cair no proibido 🔞");
+      } catch {
+        // fallback
+        const ta = document.getElementById("codigoPix");
+        ta.select(); document.execCommand("copy");
+        alert("✅ PIX copiado! Paga agora e vem cair no proibido 🔞");
+      }
+    }
 
-setInterval(() => {
-  if (tempo > 0) {
-    let min = Math.floor(tempo / 60);
-    let seg = tempo % 60;
-    timerEl.textContent = `Expira em: ${String(min).padStart(2, '0')}:${String(seg).padStart(2, '0')}`;
-    tempo--;
-  } else {
-    tempo = 299;
-  }
-}, 1000);
-</script>
+    // Notificações rotativas (social proof)
+    const notificacoes = [
+      "Lucas acabou de virar VIP e entrou comigo ao vivo…",
+      "Bruno liberou o acesso e tá na cama comigo agora!",
+      "Thiago entrou no grupo secreto 🔥",
+      "Rafael tá aproveitando o conteúdo sem censura 😏",
+      "Henrique virou VIP e já está online na live!",
+      "Caio ativou o acesso completo – AO VIVO comigo",
+      "Matheus entrou na sala privada agora mesmo",
+      "João desbloqueou tudo e já tá lá dentro!",
+      "Felipe fez o PIX e virou VIP em segundos",
+      "André se conectou na transmissão secreta",
+      "Pedro entrou na chamada proibida",
+      "Diego tá no quarto privado comigo 😈"
+    ];
+    let notiIndex = 0;
+    setInterval(() => {
+      const notiDiv = document.getElementById("notificacao");
+      notiDiv.textContent = notificacoes[notiIndex];
+      notiDiv.style.opacity = 1;
+      notiIndex = (notiIndex + 1) % notificacoes.length;
+    }, 8000);
+
+    // Timer regressivo com reinício
+    setInterval(() => {
+      if (tempo > 0) {
+        let min = Math.floor(tempo / 60);
+        let seg = tempo % 60;
+        timerEl.textContent = `Expira em: ${String(min).padStart(2,'0')}:${String(seg).padStart(2,'0')}`;
+        tempo--;
+      } else {
+        tempo = 299;
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
-<script>
-    // ... [todo o código anterior permanece] ...
-    
-    // 🧪 MODO DEBUG: simula o pagamento com base no valor digitado manualmente
-    // Pressione a tecla "d" para ativar
-    
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'd') {
-        alert("🔧 MODO TESTE ATIVADO: você vai simular um pagamento sem pagar nada!");
-        valorOriginal = parseInt(prompt("Digite o valor EM CENTAVOS (ex: 400 para R$4,00 ou 1500 para R$15,00):"));
-        if (isNaN(valorOriginal)) {
-          alert("❌ Valor inválido. Tente de novo");
-          return;
-        }
-        if (valorOriginal < 990) {
-          window.location.href = "https://memimadireito.vercel.app/";
-        } else {
-          window.location.href = "entrega.html";
-        }
-      }
-    });
-    // 🧪 MODO DEBUG: simula o pagamento com base no valor digitado manualmente
-    // Pressione a tecla "d" para ativar
-    
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'd') {
-        alert("🔧 MODO TESTE ATIVADO: você vai simular um pagamento sem pagar nada!");
-        valorOriginal = parseInt(prompt("Digite o valor EM CENTAVOS (ex: 400 para R$4,00 ou 1500 para R$15,00):"));
-        if (isNaN(valorOriginal)) {
-          alert("❌ Valor inválido. Tente de novo");
-          return;
-        }
-        if (valorOriginal < 990) {
-          window.location.href = "https://memimadireito.vercel.app/";
-        } else {
-          window.location.href = "entrega.html";
-        }
-      }
-    });
-    // 🧪 MODO DEBUG: simula o pagamento com base no valor digitado manualmente
-    // Pressione a tecla "d" para ativar
-    
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'd') {
-        alert("🔧 MODO TESTE ATIVADO: você vai simular um pagamento sem pagar nada!");
-        valorOriginal = parseInt(prompt("Digite o valor EM CENTAVOS (ex: 400 para R$4,00 ou 1500 para R$15,00):"));
-        if (isNaN(valorOriginal)) {
-          alert("❌ Valor inválido. Tente de novo");
-          return;
-        }
-        if (valorOriginal < 990) {
-          window.location.href = "https://memimadireito.vercel.app/";
-        } else {
-          window.location.href = "entrega.html";
-        }
-      }
-    });
-    </script>
-    </body>
-    </html>
-    
